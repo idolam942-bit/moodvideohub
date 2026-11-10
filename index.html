@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MOOD VIDEO HUB</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #080b12;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            padding: 22px 10px 12px;
+        }
+
+        header h1 {
+            color: #ff3030;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: #aaaaaa;
+            font-size: 13px;
+            margin-top: 7px;
+        }
+
+        .video-container {
+            width: 92%;
+            max-width: 420px;
+            aspect-ratio: 9 / 16;
+            margin: 15px auto;
+            background: #000000;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: #000000;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65px;
+            height: 65px;
+            border: none;
+            border-radius: 50%;
+            background: #ff3030;
+            color: #ffffff;
+            font-size: 27px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .play-button.hidden {
+            display: none;
+        }
+
+        .video-title {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 12px 0 20px;
+        }
+
+        footer {
+            color: #777777;
+            font-size: 12px;
+            padding: 20px 10px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>MOOD VIDEO HUB</h1>
+        <p>Enjoy The Video Experience</p>
+    </header>
+
+    <div class="video-container">
+
+        <video id="myVideo" playsinline controls preload="metadata">
+
+            <source
+                src="PASTE_YOUR_SLICEDRIVE_MP4_URL_HERE"
+                type="video/mp4"
+            >
+
+            Your browser does not support video playback.
+
+        </video>
+
+        <button
+            class="play-button"
+            id="playButton"
+            aria-label="Play video"
+        >
+            ▶
+        </button>
+
+    </div>
+
+    <div class="video-title">
+        Welcome To Mood Video Hub
+    </div>
+
+    <footer>
+        © 2026 MOOD VIDEO HUB. All Rights Reserved.
+    </footer>
+
+    <script>
+        const video = document.getElementById("myVideo");
+        const playButton = document.getElementById("playButton");
+
+        playButton.addEventListener("click", function() {
+
+            video.play().catch(function(error) {
+                console.log("Video playback error:", error);
+            });
+
+        });
+
+        video.addEventListener("play", function() {
+            playButton.classList.add("hidden");
+        });
+
+        video.addEventListener("pause", function() {
+            playButton.classList.remove("hidden");
+        });
+
+        video.addEventListener("ended", function() {
+            playButton.classList.remove("hidden");
+        });
+    </script>
+
+</body>
+
+</html>
