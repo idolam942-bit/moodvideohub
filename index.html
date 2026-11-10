@@ -23,7 +23,7 @@
         }
 
         header {
-            padding: 22px 10px 12px;
+            padding: 12px 10px 0;
         }
 
         header h1 {
@@ -36,14 +36,14 @@
         header p {
             color: #aaaaaa;
             font-size: 13px;
-            margin-top: 7px;
+            margin-top: 5px;
         }
 
         .video-container {
             width: 92%;
             max-width: 420px;
             aspect-ratio: 9 / 16;
-            margin: 15px auto;
+            margin: 5px auto 15px;
             background: #000000;
             border-radius: 12px;
             overflow: hidden;
@@ -103,8 +103,11 @@
 
     <div class="video-container">
 
-        <video id="myVideo" playsinline controls preload="metadata">
-
+        <video
+            id="myVideo"
+            playsinline
+            preload="metadata"
+        >
             <source
                 src="https://cdn.slicedrive.com/5CJce8xT1.mp4"
                 type="video/mp4"
@@ -141,6 +144,16 @@
             video.play().catch(function(error) {
                 console.log("Video playback error:", error);
             });
+
+        });
+
+        video.addEventListener("click", function() {
+
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
 
         });
 
